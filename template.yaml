@@ -14,6 +14,9 @@ Resources:
       Runtime: java8
       MemorySize: 512
       Timeout: 5
+      Environment:
+        Variables:
+          WATCHSON_API_URL: !ImportValue "watchson-api-url"
       Events:
         TelegramBot:
           Type: Api
@@ -25,9 +28,3 @@ Outputs:
   TelegramBotApi:
     Description: "API Gateway endpoint URL for Prod stage for Telegram Bot Function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/receiveMessage"
-  TelegramBotFunction:
-    Description: "Telegram Bot Lambda Function ARN"
-    Value: !GetAtt TelegramBotFunction.Arn
-  TelegramBotFunctionIamRole:
-    Description: "Implicit IAM Role created for Telegram Bot Function"
-    Value: !GetAtt TelegramBotFunctionRole.Arn
