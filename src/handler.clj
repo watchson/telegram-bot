@@ -12,5 +12,5 @@
     (.setBody msg)))
 
 (defn -handleRequest [this input context]
-  (let [msg (json/write-str {:message (.get input "resource")})]
+  (let [msg (json/write-str {:message (str (.get input "resource") "dawson") })]
     (lambda-integration-response msg 200)))
