@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Watchson Telegram Bot
+
+  Sample SAM Template for telegram-bot
+
+Resources:
+  TelegramBotFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: target/uberjar/telegram-bot-0.1.0-SNAPSHOT-standalone.jar
+      Handler: handler::handleRequest
+      Runtime: java8
+      MemorySize: 512
+      Timeout: 5
+      Events:
+        TelegramBot:
+          Type: Api
+          Properties:
+            Path: /health
+            Method: get
+
+Outputs:
+  TelegramBotApi:
+    Description: "API Gateway endpoint URL for Prod stage for Telegram Bot Function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/health/"
+  TelegramBotFunction:
+    Description: "Telegram Bot Lambda Function ARN"
+    Value: !GetAtt TelegramBotFunction.Arn
+  TelegramBotFunctionIamRole:
+    Description: "Implicit IAM Role created for Telegram Bot Function"
+    Value: !GetAtt TelegramBotFunctionRole.Arn
