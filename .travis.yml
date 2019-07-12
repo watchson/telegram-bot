@@ -1,4 +1,6 @@
 lang: clojure
+dist: xenial
+sudo: required
 env:
   global:
     - PATH=$HOME/.local/bin:$PATH

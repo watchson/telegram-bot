@@ -1,7 +1,12 @@
+runtest:
+	lein test
+
 build:
 	lein uberjar
 
-package: build
+release: runtest build
+
+package: release
 	sam package  --output-template-file packaged.yaml --s3-bucket watchson-telegram-bot-deploy-bucket
 
 deploy: package
