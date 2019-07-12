@@ -5,7 +5,6 @@
   (:require [clojure.data.json :as json]))
 
 (defn lambda-integration-response [^String msg ^long status-code]
-  "Wraps message into lambda integration response object"
   (doto (new APIGatewayProxyResponseEvent)
     (.setStatusCode (int status-code))
     (.setHeaders {"Content-Type" "application/json"})

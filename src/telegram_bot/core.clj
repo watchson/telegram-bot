@@ -1,6 +1,4 @@
-(ns telegram-bot.core
-  (:gen-class
-    :methods [^:static [handler [String] String]]))
+(ns telegram-bot.core)
 
-(defn -handler [s]
-  (str "Hello " s "!"))
+(defn process-message [message]
+  (str "Hello " message "!"))
