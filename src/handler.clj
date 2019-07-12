@@ -11,5 +11,9 @@
     (.setBody msg)))
 
 (defn -handleRequest [this input context]
-  (let [msg (json/write-str {:message (str (.get input "resource") "dawson") })]
+  (println (json/read-str (.get input "body")))
+  (let [body-json (.get input "body")
+        body (json/read-str body-json :key-fn keyword)
+        {{{:keys [id]} :chat} :message} body
+        msg (json/write-str {:method "sendMessage" :chat_id id :text "Opa, bão?"})]
     (lambda-integration-response msg 200)))
