@@ -16,4 +16,4 @@ setWebHook:
 	curl -F "url=$(shell aws cloudformation describe-stacks --stack-name watchson-telegram-bot --query 'Stacks[0].Outputs[?OutputKey==`TelegramBotApi`].OutputValue' --output text)" \
 	    https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook
 
-deployBot: deploy setWebHooks
+deployBot: deploy setWebHook
