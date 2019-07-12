@@ -24,7 +24,7 @@ Resources:
 Outputs:
   TelegramBotApi:
     Description: "API Gateway endpoint URL for Prod stage for Telegram Bot Function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/health/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/receiveMessage"
   TelegramBotFunction:
     Description: "Telegram Bot Lambda Function ARN"
     Value: !GetAtt TelegramBotFunction.Arn
