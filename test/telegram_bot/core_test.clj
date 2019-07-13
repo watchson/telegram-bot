@@ -1,7 +1,0 @@
-(ns telegram-bot.core-test
-  (:require [clojure.test :refer :all]
-            [telegram-bot.core :refer :all]))
-
-(deftest a-test
-  (testing "Should return message"
-    (is (= 1 1))))
