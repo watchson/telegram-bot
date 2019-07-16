@@ -2,7 +2,7 @@
 
 (defn -process-text [text]
   (case text
-    "/workship" "Work Time Clocked"
+    "/workship" "I have received your prayer human, and you shall be blessed with my powers!!!"
     "I do not understand your primitive language human, try another prayer!!!"))
 
 (defn process-message [update]
