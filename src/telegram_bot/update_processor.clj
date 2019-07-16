@@ -3,7 +3,7 @@
 (defn -process-text [text]
   (case text
     "/workship" "Work Time Clocked"
-    text))
+    "I do not understand your primitive language human, try another prayer!!!"))
 
 (defn process-message [update]
   (let [{{:keys [text] {:keys [id]} :chat} :message} update]
