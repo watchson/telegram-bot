@@ -5,4 +5,4 @@
 (deftest a-test
   (testing "Should return message"
     (is (= {:method "sendMessage" :chat_id "666" :text "I do not understand your primitive language human, try another prayer!!!"}
-           (process-message {:message {:text "Hi" :chat {:id "666"}}})))))
+           (process-message {:message {:text "Hi" :chat {:id "666"} :from {:id "121212"}}})))))
