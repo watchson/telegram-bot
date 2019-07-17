@@ -17,5 +17,5 @@
   (let [body-json (.get input "body")
         update (json/read-str body-json :key-fn keyword)]
     (lambda-integration-response
-      (json/write-str (process-message update))
-      200)))
+     (json/write-str (process-message update))
+     200)))
