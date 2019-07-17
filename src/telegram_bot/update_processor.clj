@@ -15,7 +15,8 @@
 
 (defn process-message [update]
   (let [{:keys [message]} update
-        {:keys [text] {:keys [id]} :chat {:keys [user-id]} :from} message]
+        {:keys [text] {:keys [id]} :chat} message
+        user-id ((message :from) :id)]
     {:method "sendMessage"
      :chat_id id
      :text (-process-text user-id text)}))
