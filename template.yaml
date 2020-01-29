@@ -9,10 +9,10 @@ Resources:
   TelegramBotFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: target/uberjar/telegram-bot-0.1.0-SNAPSHOT-standalone.jar
-      Handler: handler::handleRequest
-      Runtime: java8
-      MemorySize: 512
+      CodeUri: target/lambda/release/telegram-bot.zip
+      Handler: doesnt.matter
+      Runtime: provided
+      MemorySize: 128
       Timeout: 5
       Environment:
         Variables:
